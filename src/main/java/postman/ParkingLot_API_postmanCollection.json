@@ -1,0 +1,78 @@
+{
+  "info": {
+    "name": "ParkingLot API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab"
+  },
+  "item": [
+    {
+      "name": "Add Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"vehicleNumber\": \"MH12AB1234\",\n    \"type\": \"Car\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8090/api/parking/park",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "parking", "park"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Remove Vehicle",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8090/api/parking/unpark/MH12AB1234",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "parking", "unpark", "MH12AB1234"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Parked Vehicles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8090/api/parking/vehicles",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "parking", "vehicles"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Parking Lot Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8090/api/parking/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "parking", "status"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
