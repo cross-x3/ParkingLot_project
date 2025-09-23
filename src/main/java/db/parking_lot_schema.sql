@@ -1,0 +1,15 @@
+CREATE TABLE vehicle (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    vehicle_number VARCHAR(20) NOT NULL UNIQUE,
+    type VARCHAR(20) NOT NULL,
+    entry_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_parked BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE parking_slot (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    slot_number INT NOT NULL UNIQUE,
+    occupied BOOLEAN DEFAULT FALSE,
+    vehicle_id BIGINT,
+    FOREIGN KEY (vehicle_id) REFERENCES vehicle(id) ON DELETE SET NULL
+);

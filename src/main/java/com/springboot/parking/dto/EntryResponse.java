@@ -4,10 +4,10 @@ import java.time.Instant;
 
 public class EntryResponse {
     private Long ticketId;
-    private String slotNumber;
+    private int slotNumber;
     private Instant entryTime;
 
-    public EntryResponse(Long ticketId, String slotNumber, Instant entryTime) {
+    public EntryResponse(Long ticketId, int slotNumber, Instant entryTime) {
         this.ticketId = ticketId;
         this.slotNumber = slotNumber;
         this.entryTime = entryTime;
@@ -20,10 +20,10 @@ public class EntryResponse {
         this.ticketId = ticketId;
     }
 
-    public String getSlotNumber() {
+    public int getSlotNumber() {
         return slotNumber;
     }
-    public void setSlotNumber(String slotNumber) {
+    public void setSlotNumber(int slotNumber) {
         this.slotNumber = slotNumber;
     }
 

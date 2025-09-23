@@ -6,7 +6,7 @@
   },
   "item": [
     {
-      "name": "Add Vehicle",
+      "name": "1. Vehicle Entry",
       "request": {
         "method": "POST",
         "header": [
@@ -17,62 +17,53 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"vehicleNumber\": \"MH12AB1234\",\n    \"type\": \"Car\"\n}"
+          "raw": "{\n    \"plateNo\": \"MH12AB1234\",\n    \"vehicleType\": \"Car\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8090/api/parking/park",
+          "raw": "http://localhost:8090/api/parking/entry",
           "protocol": "http",
           "host": ["localhost"],
-          "port": "8080",
-          "path": ["api", "parking", "park"]
+          "port": "8090",
+          "path": ["api", "parking", "entry"]
         }
       },
       "response": []
     },
-    {
-      "name": "Remove Vehicle",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8090/api/parking/unpark/MH12AB1234",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8080",
-          "path": ["api", "parking", "unpark", "MH12AB1234"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get All Parked Vehicles",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8090/api/parking/vehicles",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8080",
-          "path": ["api", "parking", "vehicles"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Parking Lot Status",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8090/api/parking/status",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8080",
-          "path": ["api", "parking", "status"]
-        }
-      },
-      "response": []
-    }
-  ]
-}
+	{
+	      "name": "2. Pay and Exit",
+	      "request": {
+	        "method": "POST",
+	        "header": [
+	          { "key": "Content-Type", "value": "application/json" }
+	        ],
+	        "body": {
+	          "mode": "raw",
+	          "raw": "{\n  \"paymentMethod\": \"CARD\"\n}"
+	        },
+	        "url": {
+	          "raw": "http://localhost:8090/api/parking/exit/1/pay",
+	          "protocol": "http",
+	          "host": ["localhost"],
+	          "port": "8090",
+	          "path": ["api", "parking", "exit", "1", "pay"]
+	        }
+	      },
+	      "response": []
+	    },
+		{
+		      "name": "3. Get Ticket by ID",
+		      "request": {
+		        "method": "GET",
+		        "header": [],
+		        "url": {
+		          "raw": "http://localhost:8090/api/parking/ticket/1",
+		          "protocol": "http",
+		          "host": ["localhost"],
+		          "port": "8090",
+		          "path": ["api", "parking", "ticket", "1"]
+		        }
+		      },
+		      "response": []
+		    }
+		  ]
+		}

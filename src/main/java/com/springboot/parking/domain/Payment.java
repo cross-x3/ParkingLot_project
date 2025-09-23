@@ -21,6 +21,25 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Payment {
+	 public enum Status { SUCCESS, FAILED }
+
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id;
+
+	 private BigDecimal amount;
+
+	 private Instant timestamp;
+
+	 @Enumerated(EnumType.STRING)
+	 private Status status;
+
+	 private String method; // e.g., CARD, CASH, UPI
+
+	 @OneToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(name = "ticket_id")
+	 private Ticket ticket;
+	    
 	 public Long getId() {
 		return id;
 	}
@@ -69,24 +88,7 @@ public class Payment {
 		this.ticket = ticket;
 	}
 
-	 public enum Status { SUCCESS, FAILED }
-
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long id;
-
-	 private BigDecimal amount;
-
-	    private Instant timestamp;
-
-	    @Enumerated(EnumType.STRING)
-	    private Status status;
-
-	    private String method; // e.g., CARD, CASH, UPI
-
-	    @OneToOne(fetch = FetchType.LAZY)
-	    @JoinColumn(name = "ticket_id")
-	    private Ticket ticket;
+	
 
 
 }

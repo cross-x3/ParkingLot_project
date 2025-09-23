@@ -34,9 +34,7 @@ public class ParkingController {
         this.ticketService = ticketService;
     }
 
-    /**
-     * Vehicle entry → allocate slot and issue ticket.
-     */
+    
     @PostMapping("/entry")
     public ResponseEntity<EntryResponse> entry(@RequestBody EntryRequest req) {
         Ticket ticket = allocationService.allocateSlotAndCreateTicket(req.getPlateNo(), req.getVehicleType());
@@ -46,9 +44,7 @@ public class ParkingController {
         return ResponseEntity.ok(resp);
     }
 
-    /**
-     * Vehicle exit → process payment and free slot.
-     */
+    
     @PostMapping("/exit/{ticketId}/pay")
     public ResponseEntity<ReceiptResponse> payAndExit(@PathVariable Long ticketId,
                                                       @RequestBody ExitPaymentRequest req) {
@@ -59,9 +55,7 @@ public class ParkingController {
         return ResponseEntity.ok(receipt);
     }
 
-    /**
-     * Get ticket details by ID.
-     */
+    
     @GetMapping("/ticket/{ticketId}")
     public ResponseEntity<Ticket> getTicket(@PathVariable Long ticketId) {
         return ticketService.findById(ticketId)

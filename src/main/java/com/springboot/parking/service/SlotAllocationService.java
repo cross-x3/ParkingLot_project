@@ -29,9 +29,7 @@ public class SlotAllocationService {
         this.vehicleRepo = vehicleRepo;
     }
 
-    /**
-     * Allocates the nearest available slot and issues a ticket.
-     */
+    
     @Transactional
     public Ticket allocateSlotAndCreateTicket(String plateNo, VehicleType vehicleType) {
         // Check if vehicle already exists; if not, save it
@@ -52,7 +50,6 @@ public class SlotAllocationService {
         ParkingSlot slot = slotRepo.findFirstAvailableForTypeForUpdate(vehicleType)
                 .orElseThrow(() -> new IllegalStateException("No available slots for type: " + vehicleType));
 
-        // Mark slot as occupied
         slot.setStatus(ParkingSlot.Status.OCCUPIED);
         slotRepo.save(slot);
 

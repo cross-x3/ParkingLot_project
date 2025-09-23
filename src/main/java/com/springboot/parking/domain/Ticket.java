@@ -12,27 +12,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "ticket")
-@Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Ticket {
 	public enum Status { ACTIVE, PAID, EXITED }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
@@ -48,6 +42,8 @@ public class Ticket {
     @Enumerated(EnumType.STRING)
     private Status status = Status.ACTIVE;
 
+    
+    //GETTERS and //SETTERS
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
@@ -86,6 +82,9 @@ public class Ticket {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	public Long getId() {
+		return id;
 	}
 
 }

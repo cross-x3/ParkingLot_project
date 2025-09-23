@@ -20,13 +20,8 @@ import lombok.Setter;
 @Entity
 @Table(name = "parking_slot",
 		uniqueConstraints = @UniqueConstraint(columnNames = {"floor_number", "slot_number", "parking_lot_id"}))
-@Getter
-@Setter
 public class ParkingSlot implements Serializable{
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	//encapsulation
@@ -51,5 +46,56 @@ public class ParkingSlot implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "parking_lot_id")
 	private ParkingLot parkingLot;
+	
+	//GETTERS and SETTERS
+	public VehicleType getType() {
+		return type;
+	}
+
+	public void setType(VehicleType type) {
+		this.type = type;
+	}
+
+	public int getFloorNumber() {
+		return floorNumber;
+	}
+
+	public void setFloorNumber(int floorNumber) {
+		this.floorNumber = floorNumber;
+	}
+
+	public int getSlotNumber() {
+		return slotNumber;
+	}
+
+	public void setSlotNumber(int slotNumber) {
+		this.slotNumber = slotNumber;
+	}
+
+	public Floor getFloor() {
+		return floor;
+	}
+
+	public void setFloor(Floor floor) {
+		this.floor = floor;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public ParkingLot getParkingLot() {
+		return parkingLot;
+	}
+
+	public void setParkingLot(ParkingLot parkingLot) {
+		this.parkingLot = parkingLot;
+	}
+
+
 
 }

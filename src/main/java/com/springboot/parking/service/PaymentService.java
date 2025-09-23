@@ -34,9 +34,7 @@ public class PaymentService {
         this.pricingRepo = pricingRepo;
     }
 
-    /**
-     * Process payment and free the parking slot.
-     */
+    
     @Transactional
     public Payment processExitAndPayment(Long ticketId, String paymentMethod) {
         Ticket ticket = ticketRepo.findById(ticketId)
