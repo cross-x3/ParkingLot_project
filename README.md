@@ -1,4 +1,4 @@
-# ParkingLot Management System 🚗
+# ParkingLot Management System
 
 A simple Spring Boot project with REST APIs for managing a parking lot.
 
