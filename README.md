@@ -14,7 +14,8 @@ A simple Spring Boot project with REST APIs for managing a parking lot.
 |--------|----------|-------------|
 | POST   | /api/parking/entry     | Park a new vehicle |
 | POST | /api/parking/exit/{ticketId}/pay | Unpark vehicle |
-| GET    | /api/parking/{ticketId} | Get parked vehicle details|
+| GET    | /api/parking/{ticketId} | Get ticket details|
+| POST  | /api/admin/slot          | Add a parking slot |
 
 
 ##  Deliverables
